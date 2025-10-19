@@ -172,6 +172,20 @@ namespace Lab2
             double SY = 0;
 
             // code here
+            for (double x = a; x <= b + 0.0001; x += h)
+            {
+                int i = 0;
+                double t = 1, sum = 1;
+                do
+                {
+                    i++;
+                    t = t * ((2 * i + 1) * x * x / (i * (2 * i - 1)));
+                    sum += t;
+                } while (t >= 0.0001);
+
+                SS += sum;
+                SY += (1 + 2 * x * x) * Math.Exp(x * x);
+            }
             // end
 
             return (SS, SY);
